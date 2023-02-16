@@ -1,0 +1,4 @@
+@use './vars.pc.scss' as *;
+@mixin border-radius {
+    border-radius: 10px;
+}
