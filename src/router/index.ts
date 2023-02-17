@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'error404',
     component: () => import('@/views/404/index.vue'),
     meta: {
-      title: '404 Not Found'
+      title: '页面不存在'
     }
   }
 ]

@@ -7,10 +7,7 @@
   width: 100vw;
   height: 100vh;
   background: url('/static/images/404.png') no-repeat center;
-  background-size: 100% 100%;
-  color: $gray-color;
-  text-align: center;
-  cursor: pointer;
+  background-size: 50% auto;
 }
 </style>
 
