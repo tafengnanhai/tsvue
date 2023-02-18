@@ -1,4 +1,5 @@
 @use './vars.mobile.scss' as *;
+
 @mixin border-radius {
-    border-radius: rem(10);
+  border-radius: rem(10);
 }

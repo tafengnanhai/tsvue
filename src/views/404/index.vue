@@ -6,7 +6,7 @@
 #content {
   width: 100vw;
   height: 100vh;
-  background: url('/static/images/404.png') no-repeat center;
+  background: url('../../assets/images/404.png') no-repeat center;
   background-size: 50% auto;
 }
 </style>

@@ -1,10 +1,50 @@
 html {
-    font-size: $font-size-base;
-    color: $font-color;
-    background: $bg-color;
+  color: $font-color;
+  font-size: $font-size-base;
+  background: $bg-color;
 }
 
 body {
-    margin: 0 auto;
-    font-size: $font-size-normal;
+  margin: 0 auto;
+  font-size: $font-size-normal;
+  font-family:
+    'Helvetica Neue',
+    Helvetica,
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    '微软雅黑',
+    Arial,
+    sans-serif;
+}
+
+a {
+  color: $black-color;
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    color: $green-color;
+  }
+}
+
+img {
+  border: 0;
+}
+
+p {
+  margin: 0;
+  text-indent: 2em;
+}
+
+table,
+div {
+  word-wrap: break-word;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }

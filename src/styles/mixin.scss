@@ -1,4 +1,5 @@
 @use './vars.scss' as *;
+
 @mixin line-height {
-    line-height: $line-height;
+  line-height: $line-height;
 }

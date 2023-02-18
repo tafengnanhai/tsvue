@@ -10,8 +10,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: () => import('@/views/index.vue'),
     meta: {
-      title: Config.site.name,
-      icon: Site.getImage('icon/logo.png')
+      title: Config.site.name
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login.vue'),
+    meta: {
+      title: '后台登录_' + Config.site.name
     }
   },
   {

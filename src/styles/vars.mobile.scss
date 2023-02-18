@@ -1,11 +1,11 @@
 @function rem($px) {
-    @return calc($px / 10) + rem;
+  @return calc($px / 10) + rem;
 }
 
-$font-size-base: 10px !default;
-$font-size-normal: rem(20) !default;
-$font-size-medium: rem(22) !default;
-$font-size-big: rem(24) !default;
-$font-size-large: rem(26) !default;
+$line-height: 1.6;
 
-$line-height: 1.6 !default;
+$font-size-base: 10px;
+$font-size-normal: rem(20);
+$font-size-medium: rem(22);
+$font-size-big: rem(24);
+$font-size-large: rem(26);

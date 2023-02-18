@@ -1,0 +1,111 @@
+/* scrollbar */
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  &:horizontal {
+    width: 4px;
+    border-radius: 5px;
+    background-color: #ccc;
+  }
+  &:vertical {
+    height: 50px;
+    background-color: #4d545e;
+    border-radius: 5px;
+  }
+  &:hover {
+    height: 50px;
+    background-color: #9f9f9f;
+    border-radius: 5px;
+  }
+}
+
+/* page */
+.el-pagination {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.el-pager li {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* table */
+/* stylelint-disable-next-line selector-class-pattern */
+.el-table__header {
+  background: #e4e7ed;
+}
+
+.cell {
+  height: 25px;
+  line-height: 25px !important;
+}
+
+.cell .el-button {
+  padding: 0 5px !important;
+}
+
+thead .cell {
+  color: #409eff;
+}
+
+/* nprogress */
+#nprogress .spinner-icon {
+  display: none;
+}
+
+/* dialog */
+.el-dialog {
+  min-width: 320px;
+}
+
+.dialog-full-screen {
+  position: absolute;
+  right: 60px;
+  top: 10px;
+  font-size: 40px;
+}
+
+.dialog-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 40px;
+}
+
+/* message */
+.el-message {
+  min-width: 280px;
+}
+
+.el-message p {
+  text-indent: 0;
+}
+
+.el-message-box {
+  width: 320px;
+}
+
+/* tree */
+/* stylelint-disable-next-line selector-class-pattern */
+.el-tree-node__content {
+  height: 40px;
+  border-bottom: 1px solid #f2f6fc;
+}
+
+/* input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}

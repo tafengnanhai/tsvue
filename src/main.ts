@@ -27,7 +27,7 @@ import.meta.env.VITE_PERMIT_CONSOLE === 'false' && (console.log = () => {})
 Site.checkVersion()
 
 // check icon
-Site.setIcon(Site.getImage('icon/logo.png'))
+Site.setIcon(Site.getImage('logo.png'))
 
 // set rem for mobile devices if needed
 // Site.setRem()
