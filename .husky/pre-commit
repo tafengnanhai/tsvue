@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
+if [ -f "$(dirname -- "$0")/_/nvm.sh" ]; then
+    source "$(dirname -- "$0")/_/nvm.sh"
+fi
 npx lint-staged
