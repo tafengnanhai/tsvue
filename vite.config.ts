@@ -4,6 +4,8 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { resolve } from 'path'
 import * as fs from 'fs'
 import * as dotenv from 'dotenv'
@@ -36,11 +38,25 @@ export default defineConfig({
         enabled: true,
         globalsPropValue: true
       },
-      resolvers: [ElementPlusResolver()]
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          prefix: 'Icon'
+        })
+      ]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          enabledCollections: ['ep']
+        })
+      ],
       dts: 'types/components.d.ts'
+    }),
+    Icons({
+      compiler: 'vue3',
+      autoInstall: true
     })
   ],
   server: {
@@ -80,7 +96,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "@/styles/vars.scss" as *;@use "@/styles/vars.mobile.scss" as *;@use "@/styles/mixin.scss" as *;@use "@/styles/mixin.mobile.scss" as *;'
+        additionalData: '@use "@/styles/vars.scss" as *;@use "@/styles/mixin.scss" as *;@use "@/styles/vars.pc.scss" as *;@use "@/styles/mixin.pc.scss" as *;' // for pc
+        // additionalData: '@use "@/styles/vars.scss" as *;@use "@/styles/mixin.scss" as *;@use "@/styles/vars.mobile.scss" as *;@use "@/styles/mixin.mobile.scss" as *;' // for mobile
       }
     }
   }

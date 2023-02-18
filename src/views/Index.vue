@@ -2,7 +2,7 @@
   <div class="main">TsVue Home</div>
 </template>
 
-<script setup lang="ts" name="home"></script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .main {
