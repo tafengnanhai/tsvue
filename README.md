@@ -16,6 +16,9 @@ npm run preview
 ## build
 npm run build
 
-## lint
-npm run lint
+## eslint
+npm run eslint
+
+## stylelint
+npm run stylelint
 
