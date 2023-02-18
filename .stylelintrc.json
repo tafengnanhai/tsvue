@@ -5,10 +5,10 @@
   "rules": {
     "indentation": 2,
     "color-no-invalid-hex": true,
+    "no-empty-source": true,
     "rule-empty-line-before": null,
     "at-rule-no-unknown": null,
     "no-descending-specificity": null,
-    "no-empty-source": null,
     "selector-pseudo-element-no-unknown": null,
     "selector-pseudo-class-no-unknown": null,
     "property-no-unknown": null,
