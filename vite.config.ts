@@ -32,7 +32,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueSetupExtend(),
-    ElementPlus(),
+    process.env.VITE_NODE_ENV !== 'test' && ElementPlus({}),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia', 'vitest'],
       dts: 'types/auto-import.d.ts',
