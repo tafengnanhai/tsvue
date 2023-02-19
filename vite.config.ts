@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import ElementPlus from 'unplugin-element-plus/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -31,6 +32,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueSetupExtend(),
+    ElementPlus(),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia', 'vitest'],
       dts: 'types/auto-import.d.ts',
