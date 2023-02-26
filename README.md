@@ -7,7 +7,7 @@ npm install
 npm run dev
 
 ## test
-npm run test / npm run test:ui / npm run test:run / npm run test:coverage
+npm test / npm run test:ui / npm run test:run / npm run test:coverage
 
 
 ## preview

@@ -3,6 +3,7 @@ import 'nprogress/nprogress.css'
 import nProgress from 'nprogress'
 import Site from '@/utils/site'
 import Config from '@/config/config'
+import { useUserStore } from '@/store/user'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,7 +37,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(to => {
+router.beforeEach((to, from, next) => {
   nProgress.start()
   if (typeof to.meta?.title === 'string') {
     document.title = to.meta.title
@@ -44,6 +45,10 @@ router.beforeEach(to => {
   if (typeof to.meta?.icon === 'string') {
     Site.setIcon(to.meta.icon)
   }
+  if (to.name !== 'login' && to.name !== 'error404') {
+    useUserStore().checkLoginStatus()
+  }
+  next()
 })
 
 router.afterEach(() => {

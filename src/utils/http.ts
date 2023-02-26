@@ -26,7 +26,7 @@ export interface ResponseData {
 }
 
 export class Result {
-  static success(data:any = {}, msg = '操作成功') {
+  static success(data: any = {}, msg = '操作成功') {
     return {
       code: Code.Success,
       msg,
@@ -34,7 +34,7 @@ export class Result {
     }
   }
 
-  static failture(data:any = {}, msg = '操作失败') {
+  static failture(data: any = {}, msg = '操作失败') {
     return {
       code: Code.Failure,
       msg,
@@ -53,7 +53,7 @@ axios.interceptors.request.use(
       Loading.show()
     }
     if (request.headers) {
-      request.headers.Token = useLocalUserStore.token
+      request.headers.Token = useLocalUserStore().token
       if (request.method === 'post') {
         request.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       }
@@ -81,7 +81,7 @@ axios.interceptors.response.use(
 )
 
 export default class Http {
-  static get(url: string, params?:any, showSuccessTip = false, showErrTip = true) {
+  static get(url: string, params?: any, showSuccessTip = false, showErrTip = true) {
     return new Promise(resolve => {
       axios
         .get(url, { params })

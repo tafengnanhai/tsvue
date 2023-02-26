@@ -1,17 +1,17 @@
 <template>
   <div id="login">
     <div class="panel">
-      <el-form ref="operForm">
+      <el-form ref="operFormRef" :model="operForm" :rules="rules">
         <div class="title">{{ sitename }} 登录</div>
         <el-form-item prop="username">
-          <el-input placeholder="请输入用户名" class="input-username" autocomplete="off" v-model.trim="formData.username">
+          <el-input placeholder="用户名" class="input-username" autocomplete="off" v-model.trim="operForm.username" @keydown.enter="submitForm(operFormRef)">
             <template #prefix>
               <i-ep-user></i-ep-user>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="请输入密码" class="input-password" autocomplete="off" show-password v-model="formData.password">
+          <el-input type="password" placeholder="密码" class="input-password" autocomplete="off" show-password v-model="operForm.password" @keydown.enter="submitForm(operFormRef)">
             <template #prefix>
               <i-ep-lock></i-ep-lock>
             </template>
@@ -19,7 +19,7 @@
         </el-form-item>
         <el-form-item prop="captcha">
           <div class="captcha">
-            <el-input placeholder="请输入图片验证码" class="input-captcha" v-model.trim="formData.captcha">
+            <el-input placeholder="图片验证码" class="input-captcha" v-model.trim="operForm.captcha" @keydown.enter="submitForm(operFormRef)">
               <template #prefix>
                 <i-ep-set-up></i-ep-set-up>
               </template>
@@ -28,7 +28,7 @@
           </div>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" class="submit-login" round>登录</el-button>
+          <el-button type="primary" class="submit-login" round @click="submitForm(operFormRef)">登录</el-button>
         </el-form-item>
         <div class="forget-password">
           <el-button type="primary" link @click="forgetPassword">忘记密码？</el-button>
@@ -41,10 +41,21 @@
 <script setup lang="ts">
 import config from '@/config/config'
 import Captcha from '@/api/captcha'
-import MessageBox from '@/utils/messageBox'
+import User from '@/api/user'
+import Message from '@/utils/message'
+import router from '@/router'
+import { Code } from '@/utils/http'
+import type { FormInstance, FormRules } from 'element-plus'
 
 const sitename = config.site.name
-const formData = reactive({
+
+const operFormRef = ref<FormInstance>()
+const rules = reactive<FormRules>({
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+  captcha: [{ required: true, message: '请输入图形验证码', trigger: 'blur' }]
+})
+const operForm = reactive({
   username: '',
   password: '',
   captcha: ''
@@ -54,8 +65,27 @@ const getLoginCaptcha = () => {
   Captcha.login().then((res: any) => (imgCaptcha.value = res.data.captcha))
 }
 getLoginCaptcha()
+
 const forgetPassword = () => {
-  MessageBox.show('请联系管理员重设密码')
+  Message.success('请联系管理员重设密码')
+}
+
+const submitForm = async(formInstance: FormInstance | undefined) => {
+  if (!formInstance) {
+    return
+  }
+  await formInstance.validate(valid => {
+    if (valid) {
+      User.checkLogin(operForm).then((res: any) => {
+        if (res.code === Code.Success) {
+          router.replace('/')
+        } else {
+          operForm.password = ''
+          getLoginCaptcha()
+        }
+      })
+    }
+  })
 }
 </script>
 
