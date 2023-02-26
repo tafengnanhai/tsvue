@@ -1,7 +1,7 @@
 import { ElMessage } from 'element-plus'
 
 export default class Message {
-  static success(message = '操作成功', duration = 1000) {
+  static success(message = '操作成功', duration = 1500) {
     return ElMessage({
       message,
       type: 'success',
@@ -9,7 +9,7 @@ export default class Message {
     })
   }
 
-  static error(message = '操作失败', duration = 1500) {
+  static error(message = '操作失败', duration = 2000) {
     return ElMessage({
       message,
       type: 'error',
