@@ -45,6 +45,6 @@ Mock.mock('/api/v1/user/check-login', 'post', options => {
   } else if (status === 0) {
     return Result.failture({}, '用户已禁用')
   } else {
-    return Result.success()
+    return Result.success({ token: Mock.mock('@string(32)') }, '登录成功')
   }
 })

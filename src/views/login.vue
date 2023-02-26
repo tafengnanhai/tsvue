@@ -46,6 +46,7 @@ import Message from '@/utils/message'
 import router from '@/router'
 import { Code } from '@/utils/http'
 import type { FormInstance, FormRules } from 'element-plus'
+import { useUserStore } from '@/store/user'
 
 const sitename = config.site.name
 
@@ -78,6 +79,7 @@ const submitForm = async(formInstance: FormInstance | undefined) => {
     if (valid) {
       User.checkLogin(operForm).then((res: any) => {
         if (res.code === Code.Success) {
+          useUserStore().setToken(res.data.token)
           router.replace('/')
         } else {
           operForm.password = ''
