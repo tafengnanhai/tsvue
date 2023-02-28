@@ -82,7 +82,6 @@ const submitForm = async(formInstance: FormInstance | undefined) => {
           useUserStore().setToken(res.data.token)
           router.replace('/')
         } else {
-          operForm.password = ''
           getLoginCaptcha()
         }
       })

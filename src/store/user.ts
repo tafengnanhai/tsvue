@@ -44,7 +44,7 @@ const useUserStore = defineStore(storeId, {
     checkLoginStatus() {
       if (this.token === '') {
         Message.error('已超时，请重新登录')
-        router.push('login')
+        router.replace('login')
       }
     }
   },

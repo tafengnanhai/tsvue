@@ -8,7 +8,7 @@ import { useUserStore } from '@/store/user'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
+    name: 'index',
     component: () => import('@/views/index.vue'),
     meta: {
       title: Config.site.name
