@@ -29,3 +29,5 @@ test/coverage
 *.njsproj
 *.sln
 *.sw?
+types/components.d.ts
+types/auto-import.d.ts
