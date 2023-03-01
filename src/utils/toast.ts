@@ -1,6 +1,6 @@
 import { ElMessage } from 'element-plus'
 
-export default class Message {
+export default class Toast {
   static success(message = '操作成功', duration = 1500) {
     return ElMessage({
       message,
